@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@200;400;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --accent-red: #ef233c;
+  --accent-red-glow: rgba(239, 35, 60, 0.5);
+  --ink: #000000;
+  --paper: #ffffff;
+  --zinc-dark: #09090b;
+  --zinc-card: #121215;
+  --muted: #a1a1aa;
+  --line: rgba(255,255,255,0.1);
+  --sans: 'Manrope', sans-serif;
+  --inter: 'Inter', sans-serif;
+  --ease: cubic-bezier(.23,1,.32,1);
+}
+
+@property --gradient-angle { 
+  syntax: "<angle>"; 
+  initial-value: 0deg; 
+  inherits: false; 
+}
+
+/* Custom Animations */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes border-spin {
+  from { --gradient-angle: 0deg; }
+  to { --gradient-angle: 360deg; }
+}
+
+@keyframes animStar {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-2000px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.font-manrope { font-family: 'Manrope', sans-serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--inter);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #ef233c;
+  color: #ffffff;
+}
+
+/* Shiny Red CTA Button */
+.shiny-cta {
+  --gradient-angle: 0deg;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(#000000, #000000) padding-box,
+  conic-gradient(from var(--gradient-angle), transparent 0%, #ef233c 5%, #ef233c 15%, #ef233c 30%, transparent 40%, transparent 100%) border-box;
+  border: 2px solid transparent;
+  cursor: pointer;
+  isolation: isolate;
+  animation: border-spin 2.5s linear infinite;
+  box-shadow: none;
+  transition: transform 0.2s ease;
+}
+
+.shiny-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.shiny-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, white 0.5px, transparent 0);
+  background-size: 4px 4px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Parallax Starfield */
+.stars-1 { 
+  box-shadow: 234px 124px #fff, 654px 345px #fff, 876px 12px #fff, 1200px 800px #fff, 400px 1500px #fff, 1800px 200px #fff, 100px 1000px #fff, 900px 1900px #fff, 500px 600px #fff, 1400px 100px #fff, 300px 400px #fff, 1600px 1200px #fff; 
+}
+.stars-2 { 
+  box-shadow: 123px 456px #fff, 789px 234px #fff, 456px 890px #fff, 1100px 300px #fff, 200px 1200px #fff, 1500px 500px #fff, 600px 1700px #fff, 1300px 900px #fff; 
+}
+
+/* Text Stroke Effect */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+  color: transparent;
+}
+
+/* Gradient Blur Header Overlay */
+.gradient-blur {
+  position: fixed;
+  z-index: 40;
+  inset: 0 0 auto 0;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
+  backdrop-filter: blur(8px);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* Container */
+.container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.section-pad {
+  padding: clamp(96px, 12vw, 160px) 0;
+}
+
+/* Header Navbar */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: #000000;
+  color: #ffffff;
+  padding: 100px 32px 40px;
+  transform: translateY(-100%);
+  transition: transform .35s var(--ease);
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: 24px;
+  font-weight: 800;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  text-align: left;
+}
+
+.mobile-menu-talk {
+  margin-top: 20px;
+  background: #ef233c !important;
+  color: white !important;
+  padding: 16px 24px !important;
+  border-radius: 9999px;
+  font-size: 16px !important;
+  justify-content: center !important;
+  border-bottom: none !important;
+}
+
+/* 3D Core Ring Animations */
+.compact-art-depth {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.compact-art-ring {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+}
+
+.ring-1 {
+  inset: 10%;
+  border-top-color: #ef233c;
+}
+
+.ring-2 {
+  inset: 24%;
+  border-right-color: rgba(239, 35, 60, 0.6);
+  animation-duration: 15s;
+  animation-direction: reverse;
+}
+
+.ring-3 {
+  inset: 38%;
+  border-style: dashed;
+  border-color: rgba(255,255,255,.2);
+}
+
+.compact-art-core {
+  width: 96px;
+  height: 96px;
+  border: 2px solid #ef233c;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: none;
+  z-index: 2;
+}
+
+.compact-art-label {
+  position: absolute;
+  font-family: var(--inter);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  color: #71717a;
+}
+
+.label-vision { top: 8%; }
+.label-build { right: 8%; }
+.label-grow { bottom: 8%; }
+
+/* Scroll Reveal */
+.compact-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+
+.compact-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 90;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #ef233c;
+  color: white;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform .2s var(--ease);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block !important;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
