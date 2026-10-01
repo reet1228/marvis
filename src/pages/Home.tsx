@@ -6,6 +6,7 @@ import {
 import ParallaxStarsBackground from "../components/ParallaxStarsBackground";
 import ScrollJourneyLine from "../components/ScrollJourneyLine";
 import InteractiveJourneySection from "../components/InteractiveJourneySection";
+import ScrollWeightSection from "../components/ScrollWeightSection";
 
 const navItems = ["About", "Services", "Why Us", "Contact"];
 
@@ -285,19 +286,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Signature Execution Bar */}
-        <section className="py-16 border-b border-white/5 bg-zinc-950/40">
-          <div className="container text-center">
-            <div className="inline-flex items-center gap-4 text-xs font-mono tracking-widest text-zinc-400 mb-4">
-              <span className="text-[#ef233c] font-bold">OUR MARKETING</span>
-              <span className="text-zinc-600">→</span>
-              <span className="text-white font-bold">YOUR VISION</span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white max-w-2xl mx-auto leading-snug font-manrope">
-              Connecting strategic execution directly to your business potential.
-            </h3>
-          </div>
-        </section>
+        {/* Scroll-Reactive Typography Section (Weight Light 300 -> Extra Bold 800) */}
+        <ScrollWeightSection />
 
         {/* About Section */}
         <section className="py-32 px-6 relative" id="about">
