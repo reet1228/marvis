@@ -6,7 +6,6 @@ import {
 import ParallaxStarsBackground from "../components/ParallaxStarsBackground";
 import ScrollJourneyLine from "../components/ScrollJourneyLine";
 import InteractiveJourneySection from "../components/InteractiveJourneySection";
-import ScrollWeightSection from "../components/ScrollWeightSection";
 
 const navItems = ["About", "Services", "Why Us", "Contact"];
 
@@ -50,10 +49,10 @@ const principles = [
 
 function Logo({ footer = false }: { footer?: boolean }) {
   return (
-    <a href="#top" className="inline-flex items-center group" aria-label="MARVIS home">
+    <a href="#top" className="inline-flex items-center group" aria-label="MARVISCO home">
       <img 
         src="./marvis-logo-red.png" 
-        alt="MARVIS" 
+        alt="MARVISCO" 
         className={
           footer 
             ? "h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105" 
@@ -192,7 +191,7 @@ export default function Home() {
       {/* Mobile Navigation Drawer */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         <div className="mobile-menu-inner">
-          <span className="text-xs font-mono tracking-widest text-red-400">MARVIS / DIGITAL GROWTH</span>
+          <span className="text-xs font-mono tracking-widest text-red-400">MARVISCO / DIGITAL GROWTH</span>
           {navItems.map((item) => (
             <button key={item} onClick={() => go(`#${item.toLowerCase().replace(/\s+/g, '-')}`)}>
               {item}
@@ -216,7 +215,7 @@ export default function Home() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ef233c]"></span>
               </span>
               <span className="text-xs font-medium text-red-100/90 tracking-wide font-manrope">
-                MARVIS Digital Intelligence 2.0 is live
+                MARVISCO Digital Intelligence 2.0 is live
               </span>
               <ArrowRight className="w-3 h-3 text-red-400" />
             </div>
@@ -286,8 +285,19 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll-Reactive Typography Section (Weight Light 300 -> Extra Bold 800) */}
-        <ScrollWeightSection />
+        {/* Signature Execution Bar */}
+        <section className="py-16 border-b border-white/5 bg-zinc-950/40">
+          <div className="container text-center">
+            <div className="inline-flex items-center gap-4 text-xs font-mono tracking-widest text-zinc-400 mb-4">
+              <span className="text-[#ef233c] font-bold">OUR MARKETING</span>
+              <span className="text-zinc-600">→</span>
+              <span className="text-white font-bold">YOUR VISION</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white max-w-2xl mx-auto leading-snug font-manrope">
+              Connecting strategic execution directly to your business potential.
+            </h3>
+          </div>
+        </section>
 
         {/* About Section */}
         <section className="py-32 px-6 relative" id="about">
@@ -295,7 +305,7 @@ export default function Home() {
             <div className="mb-16">
               <div className="inline-flex items-center gap-2 text-xs font-mono text-red-400 uppercase tracking-widest mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#ef233c]"></span>
-                01 / ABOUT MARVIS
+                01 / ABOUT MARVISCO
               </div>
               <h2 className="text-4xl md:text-6xl font-bold font-manrope tracking-tight text-white">
                 Transforming vision <br />
@@ -305,10 +315,10 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
               <p className="text-lg text-zinc-400 leading-relaxed">
-                MARVIS is a technology-enabled digital growth partner based in India. We help ambitious businesses build stronger digital identities, reach the right audience, and turn attention into action.
+                MARVISCO is a technology-enabled digital growth partner based in India. We help ambitious businesses build stronger digital identities, reach the right audience, and turn attention into action.
               </p>
               <p className="text-lg text-zinc-400 leading-relaxed">
-                MARVIS was created around a simple belief: businesses shouldn't need to navigate websites, content, marketing and technology separately. We bring these capabilities together under one roof.
+                MARVISCO was created around a simple belief: businesses shouldn't need to navigate websites, content, marketing and technology separately. We bring these capabilities together under one roof.
               </p>
             </div>
 
@@ -380,13 +390,13 @@ export default function Home() {
         {/* Scroll-Driven Interactive Journey Section */}
         <InteractiveJourneySection />
 
-        {/* Why MARVIS (Principles Grid) */}
+        {/* Why MARVISCO (Principles Grid) */}
         <section className="py-32 px-6 relative border-t border-white/5" id="why-us">
           <div className="max-w-7xl mx-auto">
             <div className="mb-20 text-center max-w-3xl mx-auto compact-reveal">
               <div className="inline-flex items-center gap-2 text-xs font-mono text-red-400 uppercase tracking-widest mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#ef233c]"></span>
-                03 / WHY MARVIS
+                03 / WHY MARVISCO
               </div>
               <h2 className="text-4xl md:text-5xl font-semibold text-white font-manrope mb-4">More than an agency.</h2>
               <p className="text-zinc-400">We combine the clarity of a consultant, the craft of a creative team, and the speed of modern technology.</p>
@@ -561,7 +571,7 @@ export default function Home() {
           <div>
             <h4 className="text-xs font-bold text-[#ef233c] uppercase tracking-widest mb-6 font-mono">Connect</h4>
             <ul className="space-y-3 text-zinc-400 text-sm">
-              <li><a href="mailto:hello@marvis.agency" className="hover:text-white transition-colors">hello@marvis.agency</a></li>
+              <li><a href="mailto:hello@marvisco.agency" className="hover:text-white transition-colors">hello@marvisco.agency</a></li>
               <li><a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">WhatsApp</a></li>
               <li><a href="https://www.instagram.com/arohance/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Instagram</a></li>
               <li><a href="https://www.linkedin.com/company/arohance-india/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
@@ -572,12 +582,12 @@ export default function Home() {
         {/* Giant Text Stroke Watermark */}
         <div className="flex justify-center items-center py-10 opacity-20 pointer-events-none select-none">
           <h1 className="text-[16vw] leading-none font-bold font-manrope tracking-tighter text-stroke">
-            MARVIS
+            MARVISCO
           </h1>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 border-t border-zinc-900 pt-8 flex flex-col md:flex-row items-center justify-between text-zinc-600 text-[10px] uppercase tracking-widest font-mono">
-          <p>&copy; 2026 MARVIS Inc. All rights reserved.</p>
+          <p>&copy; 2026 MARVISCO Inc. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="https://www.instagram.com/arohance/" target="_blank" rel="noreferrer" className="hover:text-zinc-400">Instagram</a>
             <a href="https://www.linkedin.com/company/arohance-india/" target="_blank" rel="noreferrer" className="hover:text-zinc-400">LinkedIn</a>
