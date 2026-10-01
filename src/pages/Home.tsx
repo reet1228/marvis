@@ -51,7 +51,7 @@ function Logo({ footer = false }: { footer?: boolean }) {
   return (
     <a href="#top" className="inline-flex items-center group" aria-label="MARVIS home">
       <img 
-        src="/marvis-logo-red.png" 
+        src="./marvis-logo-red.png" 
         alt="MARVIS" 
         className={
           footer 
